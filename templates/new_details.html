@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ new.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fa/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <script>
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+            }
+
+        const csrftoken=getCookie('csrftoken')
+    </script>
+</head>
+<body style="background-color:#F1FAF4" onload="myFunction()" style="margin:0;">
+
+<div id="loader"></div>
+<div style="display:none;text-align: left" id="myDiv" class="animate-bottom">
+<div class="menuikki">
+    <ul type="None">
+        <li><a href="/new"><img style="width: 20px" src="{% static 'img/home.png' %}" alt="xato"></a></li>
+        {% for j in category %}
+        <li><a href="{% url 'bycategory' j.id %}">{{ j.name }}</a></li>
+        {% endfor %}
+        <li id="logout" style="margin-left:500px"><i class="fas fa-user-circle"></i> &nbsp &nbsp &nbsp<a href="{% url 'logout' %}"><button style="background-color:red;margin-top:-5px">Logout</button></a></li>
+    </ul>
+</div>
+<br> <br>
+<div class="card" style="width: 50rem; margin:0 auto">
+  <img src="{{ new.imageURL }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ new.title }}</h5>
+    <p class="card-text">{{ new.autor }}</p><br><br>
+      <i class="far fa-eye"></i> {{ new.view_count }} &nbsp &nbsp &nbsp &nbsp  Muallif: <b>{{ new.author }}</b> &nbsp &nbsp &nbsp &nbsp sana: <b>{{ new.create_time }}</b>
+          <h4><a><i onclick="reaction({{ new.id }},'likes')" class="far fa-thumbs-up" id="li"></i></a>:<p id="like"> {{ new.likes }}</p> &nbsp &nbsp &nbsp
+    <a onclick="reaction({{ new.id }},'dislikes')"><i class="far fa-thumbs-down" id="dis"></i></a>:<p id="dislike"> {{ new.dislikes }}</p></h4>
+      <br>
+      <div>
+        {% csrf_token %}
+        <h4>Comment: <input type="text" id="comment"><button onclick="send_comment({{ new.id }})"><i class="fas fa-paper-plane"></i></button></h4>
+    </div>
+    <ul id="comments" reversed>
+        {% for k in new.comments.all %}
+        <li>{{ k.comment }}</li>
+        {% endfor %}
+    </ul>
+  </div>
+</div>
+
+</div>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

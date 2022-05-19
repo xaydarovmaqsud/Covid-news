@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CovidNews</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'fa/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <script>
+        user_username= {{ request.user.username }}
+    </script>
+</head>
+<body>
+
+<div class="menuikki" style="margin-top:-82px">
+    <ul type="None">
+        <li><a href="/new"><img style="width: 20px" src="{% static 'img/home.png' %}" alt="xato"></a></li>
+        {% for category in category %}
+        <li><a href="{% url 'bycategory' category.id %}">{{ category.name }}</a></li>
+        {% endfor %}
+        <li  style="margin-left:520px;font-size:20px"> <i class="fas fa-user-circle"></i></li>
+        <li id="logout" style="margin-left:2px"><a href="{% url 'logout' %}"><button style="background-color:red;margin-top:-5px;border-radius: 10%">Logout</button></a></li>
+    </ul>
+</div>
+<div class="sahifa">
+{% for i in new_list reversed %}
+<div class="conteiner">
+    <div class="habarbir"><img style="width:165px" src="{{ i.imageURL }}" alt="Rasm"></div>
+<div style="padding: 10px" class="habarikki">
+    <a href="/category/4">{{ i.category }}</a> &nbsp &nbsp &nbsp  <i style="font-size: 16px" class="material-icons">visibility</i> <span>{{ i.view_count }}</span> &nbsp &nbsp &nbsp <b style="color:#7a848b"> {{ i.create_time }}</b>
+
+    <a href="/{{ i.id }}" id="kover"><h3 style="font-size: 18px">{{ i.title }}</h3></a>
+
+<h6>{{ i.autor | slice:":100" }} ...</h6></div>
+</div>
+{% endfor %}
+</div>
+
+
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

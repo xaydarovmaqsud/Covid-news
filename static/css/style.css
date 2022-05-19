@@ -1,0 +1,157 @@
+body{
+    background-color:#F1FAF4;
+}
+.menu {
+    width: 1360px;
+    background-color: #0089d0;
+    height: 40px;
+    margin-left: -10px;
+    margin-top: -82px;
+    padding: 5px;
+    position: fixed;
+    color: black;
+}
+.menu ul{
+    margin-top: 5px;
+    }
+
+.menu li {
+    font-size: 20px;
+    display: inline;
+    padding: 16px;
+    font-family: bold;
+
+}
+
+.menu li:hover {
+    background-color:blue ;
+    text-decoration:underline;
+}
+
+.menu a {
+        color: #ffffff;
+        font-family: bold;
+    text-decoration: none;
+}
+.sahifa{
+margin-top: 80px;
+}
+.conteiner{
+    width: 46%;
+    height: 200px;
+    display:inline-block;
+    margin-left:30px;
+}
+.habarbir{
+display:inline-block;
+vertical-align: bottom;
+}
+.habarbir img{
+height:170px;
+    object-fit: cover;
+}
+.habarikki{
+width:410px;
+display:inline-block;
+padding: 10px;
+vertical-align: bottom;
+margin-top: -20px;
+}
+
+.menuikki{
+    width: 1360px;
+    background-color: #0089d0;
+    height: 55px;
+    margin-left: -10px;
+    margin-top: -10px;
+    padding: 5px;
+    position: fixed;
+    color: black;
+    z-index:2;
+}
+.menuikki ul{
+    margin-top: 0px;
+    }
+
+.menuikki li {
+    font-size: 20px;
+    display: inline;
+    padding: 15px;
+    font-family: bold;
+
+}
+.menuikki ul {
+    margin-top: 9px;
+}
+.menuikki li:hover {
+    background-color:blue ;
+    text-decoration:underline;
+}
+
+.menuikki a {
+        color: #ffffff;
+        font-family: bold;
+    text-decoration: none;
+}
+p{
+display:inline;
+}
+#kover{
+    color:black;
+    text-decoration:none;
+}
+#kover:hover{
+ color:blue;
+}
+
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  -webkit-animation: spin 0.5s linear infinite;
+  animation: spin 0.5s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 0.5s;
+  animation-name: animatebottom;
+  animation-duration: 0.5s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 }
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom {
+  from{ bottom:-100px; opacity:0 }
+  to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+  display: none;
+  text-align: center;
+}
+
+
+

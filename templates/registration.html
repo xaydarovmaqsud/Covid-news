@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="{% static 'fa/css/all.min.css' %}">
+  <style>
+    * {box-sizing: border-box;}
+
+/* Style the input container */
+.input-container {
+  display: flex;
+  width: 100%;
+  margin:0 auto;
+  margin-bottom: 15px;
+}
+
+/* Style the form icons */
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* Style the input fields */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: dodgerblue;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+.conteiner{
+ width:100%;
+}
+.content{
+ width:70%;
+ margin:0 auto;
+}
+
+button{
+width:100px;
+margin:0 auto;
+}
+  </style>
+</head>
+<body>
+<div class="conteiner">
+  <form method="post">
+    {% csrf_token %}
+    <div class="content">
+  <h2>Register Form</h2>
+  <div class="input-container">
+    <i class="fa fa-user icon"></i>
+    <input class="input-field" type="text" placeholder="First_name" name="first_name" id="id_first_name">
+  </div>
+
+    <div class="input-container">
+    <i class="fa fa-user icon"></i>
+    <input class="input-field" type="text" placeholder="Last_name" name="last_name" id="id_last_name">
+  </div>
+
+    <div class="input-container">
+    <i class="fa fa-user icon"></i>
+    <input class="input-field" type="text" placeholder="Username" name="username" id="id_username">
+  </div>
+    <i style="color:red">{% if error_user %}{{ error_user }}{% endif %}</i>
+  <div class="input-container">
+    <i class="fa fa-envelope icon"></i>
+    <input class="input-field" type="text" placeholder="Email" name="email" id="id_email">
+  </div>
+
+  <div class="input-container">
+    <i class="fa fa-key icon"></i>
+    <input class="input-field" type="password" id="id_password" placeholder="Password" name="password">
+  </div>
+
+    <div class="input-container">
+    <i class="fa fa-key icon"></i>
+    <input class="input-field" type="password" id="id_password1" placeholder="Confirm password" name="password1">
+
+  </div>
+ <i style="color:red">{% if error_confirm %}{{ error_confirm }}{% endif %}</i>
+  <button type="submit" style="font-size: 20px" class="btn">Register</button>
+    <br>
+    <button type="submit" style="background-color:red;font-size: 20px" class="btn"><a style="text-decoration:none;color:white" href="/">Login</a></button>
+      </div>
+</form>
+  </div>
+</body>
+</html>
